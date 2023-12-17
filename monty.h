@@ -1,9 +1,13 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define _GNU_SOURCE
 #include <stdio.h>
+#include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <stdarg.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -13,7 +17,6 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
-
 typedef struct stack_s
 {
         int n;
@@ -29,44 +32,28 @@ typedef struct stack_s
  * for stack, queues, LIFO, FIFO
  */
 typedef struct instruction_s
-
 {
-
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-typedef struct  arg_s
-{
+extern stack_t *head;
+typedef void (*op_func)(stack_t **, unsigned int);
+/* file operation*/
+void open_fl(char *file_name);
 
-    FILE *file;
-    char *line;
-    unsigned int line_number;
-    char **token;
-    int ntoken;
-    instruction_t *instruction;
-    stack_t *head;
-    int stack_length;
-}arg_t;
-extern arg_t * arguments;
+/* error */
+void err_1();
+void err_5(int line_number);
+void err_4();
+void err_3(int line_number, char *opcode);
+void err_2(char *file_name);
 
-void initialize_args();
-
-void get_file(char *filename);
-void get_instruction(void);
-void execute(void);
-void push(stack_t ** stack , unsigned int line_number);
-int my_number(char * str);
-void pall(stack_t **stack, unsigned int line_number);
-void close_file(void);
-
-
-
-
-void push(stack_t ** stack , unsigned int line_number);
-void pop(stack_t ** stack , unsigned int line_number);
-void pint(stack_t ** stack , unsigned int line_number);
-void pall(stack_t ** stack , unsigned int line_number);
-void swap(stack_t ** stack , unsigned int line_number);
-void add(stack_t ** stack , unsigned int line_number);
-
-#endif 
+/*func*/
+void call_fun(op_func func, char *op, char *val, int line_number, int format);
+void what_func(char *opcode, char *value, int line_number, int format);
+int handle_text(char *buffer, int format , int line_number);
+void read_fl(FILE *fd);
+void free_nodes(void);
+void add_queue(stack_t **new_node, __attribute__((unused))unsigned int ln);
+stack_t *new_node(int n);
+#endif

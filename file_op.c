@@ -102,7 +102,7 @@ void call_fun(op_func func, char *op, char *val, int line_number, int format)
         if (format == 0)
             func(&node, line_number);
         if (format == 1)
-            push(&node, line_number);
+            add_push(&node, line_number);
     }
     else
         func(&head, line_number);

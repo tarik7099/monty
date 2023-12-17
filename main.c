@@ -52,19 +52,22 @@ void free_nodes(void)
 }
 
 
-void push(stack_t **head_ref,  __attribute__((unused))unsigned int n)
+void add_push(stack_t **new_node,  __attribute__((unused))unsigned int ln)
 {
-    stack_t *node = new_node(n);
+stack_t *temp;
 
-    if (node == NULL)
-    {
-        err_4();
-        return;
-    }
+	if (new_node == NULL || *new_node == NULL)
+		exit(EXIT_FAILURE);
+	if (head == NULL)
+	{
+		head = *new_node;
+		return;
+	}
+	temp = head;
+	while (temp->next != NULL)
+		temp = temp->next;
 
-    node->next = *head_ref;
-    if (*head_ref != NULL)
-        (*head_ref)->prev = node;
+	temp->next = *new_node;
+	(*new_node)->prev = temp;
 
-    *head_ref = node;
 }

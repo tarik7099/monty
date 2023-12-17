@@ -54,8 +54,9 @@ void call_fun(op_func func, char *op, char *val, int line_number, int format);
 void what_func(char *opcode, char *value, int line_number, int format);
 int handle_text(char *buffer, int format , int line_number);
 void read_fl(FILE *fd);
+void push(stack_t **new_node, __attribute__((unused))unsigned int ln);
 void free_nodes(void);
-void push(stack_t **head_ref,  __attribute__((unused))unsigned int n);
+void add_push(stack_t **head_ref,  __attribute__((unused))unsigned int n);
 stack_t *new_node(int n);
 void display(stack_t **stack, unsigned int line_number);
 

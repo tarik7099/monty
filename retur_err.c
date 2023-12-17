@@ -27,3 +27,7 @@ void err_5(int line_number)
     fprintf(stderr, "Error 5 at line %d: Invalid or missing value for 'push' operation\n", line_number);
     exit(EXIT_FAILURE);
 }
+void err_7(int line_number) {
+    fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+    exit(EXIT_FAILURE);
+}

@@ -55,6 +55,7 @@ void what_func(char *opcode, char *value, int line_number, int format)
 
 	instruction_t func_list[] = {
 		{"push", add_queue},
+        {"pall", display},
     };
     /*
 		{"pall", print_stack},

@@ -47,6 +47,7 @@ void err_5(int line_number);
 void err_4();
 void err_3(int line_number, char *opcode);
 void err_2(char *file_name);
+void err_7(int line_number);
 
 /*func*/
 void call_fun(op_func func, char *op, char *val, int line_number, int format);
@@ -56,4 +57,6 @@ void read_fl(FILE *fd);
 void free_nodes(void);
 void add_queue(stack_t **new_node, __attribute__((unused))unsigned int ln);
 stack_t *new_node(int n);
+void display(stack_t **stack, unsigned int line_number);
+
 #endif

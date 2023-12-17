@@ -11,7 +11,7 @@ void open_fl(char *file_name)
 }
 void read_fl(FILE *fd)
 {
-    int line_number = 0;
+    int line_number = 1;
     int format;
     char *buffer;
     size_t len;

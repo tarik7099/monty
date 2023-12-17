@@ -49,6 +49,7 @@ void err_3(int line_number, char *opcode);
 void err_2(char *file_name);
 void err_7(int line_number);
 void err_6(unsigned int line_number);
+void err_8(unsigned int line_number, char *op);
 
 
 /*func*/
@@ -63,4 +64,7 @@ stack_t *new_node(int n);
 void display(stack_t **stack, unsigned int line_number);
 void po_top(stack_t **stack, unsigned int line_number);
 void peek(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void swap_n(stack_t **stack, unsigned int line_number);
+void add_n(stack_t **stack, unsigned int line_number);
 #endif

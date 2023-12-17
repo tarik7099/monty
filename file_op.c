@@ -61,6 +61,9 @@ void what_func(char *opcode, char *value, int line_number, int format)
         {"pall", display},
         {"pint",peek},
         {"pop", po_top},
+        {"nop" ,nop},
+        {"swap", swap_n},
+        {"add", add_n},
         {NULL, NULL}
     };
 

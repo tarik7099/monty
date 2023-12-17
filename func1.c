@@ -34,7 +34,7 @@ void po_top(stack_t **stack, unsigned int line_number)
 	stack_t *tmp;
 
 	if (!stack)
-		err7(line_number);
+		err_7(line_number);
 
 	tmp = *stack;
 	*stack = tmp->next;

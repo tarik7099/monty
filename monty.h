@@ -48,6 +48,8 @@ void err_4();
 void err_3(int line_number, char *opcode);
 void err_2(char *file_name);
 void err_7(int line_number);
+void err_6(unsigned int line_number);
+
 
 /*func*/
 void call_fun(op_func func, char *op, char *val, int line_number, int format);

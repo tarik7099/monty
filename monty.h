@@ -59,5 +59,6 @@ void free_nodes(void);
 void add_push(stack_t **head_ref,  __attribute__((unused))unsigned int n);
 stack_t *new_node(int n);
 void display(stack_t **stack, unsigned int line_number);
-
+void po_top(stack_t **stack, unsigned int line_number);
+void peek(stack_t **stack, unsigned int line_number);
 #endif

@@ -17,8 +17,8 @@ void read_fl(FILE *fd)
     size_t len;
     while(getline(&buffer, &len, fd) != -1)
     {
-        line_number++;
         format = handle_text(buffer, format , line_number);
+        line_number++;
     }
     free(buffer);
 }

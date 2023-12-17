@@ -1,5 +1,4 @@
 #include "monty.h"
-stack_t *head = NULL;
 
 /**
  * main - entry point
@@ -53,22 +52,19 @@ void free_nodes(void)
 }
 
 
-void add_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
+void push(stack_t **head_ref,  __attribute__((unused))unsigned int n)
 {
-	stack_t *temp;
+    stack_t *node = new_node(n);
 
-	if (new_node == NULL || *new_node == NULL)
-		exit(EXIT_FAILURE);
-	if (head == NULL)
-	{
-		head = *new_node;
-		return;
-	}
-	temp = head;
-	while (temp->next != NULL)
-		temp = temp->next;
+    if (node == NULL)
+    {
+        err_4();
+        return;
+    }
 
-	temp->next = *new_node;
-	(*new_node)->prev = temp;
+    node->next = *head_ref;
+    if (*head_ref != NULL)
+        (*head_ref)->prev = node;
 
+    *head_ref = node;
 }
